@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{71326284-7B74-46DC-BDB0-DDDF9A4B9E72}</ProjectGuid>
+    <ProjectGuid>{CC548654-6E63-4312-9007-07D0333D5DEC}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SmartScene.Core</RootNamespace>
-    <AssemblyName>SmartScene.Core</AssemblyName>
+    <RootNamespace>SmartScene.ViewModel</RootNamespace>
+    <AssemblyName>SmartScene.ViewModel</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,12 +30,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Csla">
-      <HintPath>E:\Projects\Breakthrough\src\csla-4.5.701\csla-4.5.701\Bin\Debug\NET\Csla.dll</HintPath>
-    </Reference>
-    <Reference Include="NetTopologySuite">
-      <HintPath>E:\Projects\Breakthrough\Dlls\NetTopologySuite.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -46,18 +40,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IScene.cs" />
-    <Compile Include="Map\SingleImageLayer.cs" />
-    <Compile Include="Map\TiledImageLayerCollection.cs" />
-    <Compile Include="Map\TiledImageLayerType.cs" />
-    <Compile Include="Map\MapExtent.cs" />
-    <Compile Include="Map\SceneMap.cs" />
-    <Compile Include="Map\TiledImageLayer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Scene.cs" />
-    <Compile Include="SceneCollection.cs" />
+    <Compile Include="SceneVM.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\SmartScene.Core\SmartScene.Core.csproj">
+      <Project>{71326284-7b74-46dc-bdb0-dddf9a4b9e72}</Project>
+      <Name>SmartScene.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

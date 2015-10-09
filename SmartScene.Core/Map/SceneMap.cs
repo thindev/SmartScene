@@ -7,6 +7,7 @@ using Csla;
 
 namespace SmartScene.Core.Map
 {
+    [Serializable]
     public class SceneMap:BusinessBase<SceneMap>
     {
         public static readonly PropertyInfo<MapExtent> FullExtentProperty = RegisterProperty<MapExtent>(b => b.FullExtent);
@@ -16,12 +17,14 @@ namespace SmartScene.Core.Map
             set { SetProperty(FullExtentProperty, value); }
         }
 
-        public TiledImageLayer TiledImageLayer
+        public TiledImageLayerCollection TiledImageLayers
         {
-            get { return GetProperty(TiledImageLayerProperty); }
-            set { SetProperty(TiledImageLayerProperty, value); }
+            get { return GetProperty(TiledImageLayersProperty); }
+            set { SetProperty(TiledImageLayersProperty, value); }
         }
 
-        public static readonly PropertyInfo<TiledImageLayer> TiledImageLayerProperty = RegisterProperty<TiledImageLayer>(b => b.TiledImageLayer);
+        public static readonly PropertyInfo<TiledImageLayerCollection> TiledImageLayersProperty = RegisterProperty<TiledImageLayerCollection>(b => b.TiledImageLayers);
+
+
     }
 }

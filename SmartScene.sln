@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartScene.Test", "SmartSce
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartScene.Core", "SmartScene.Core\SmartScene.Core.csproj", "{71326284-7B74-46DC-BDB0-DDDF9A4B9E72}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartScene.View", "SmartScene.View\SmartScene.View.csproj", "{E657B12E-FEFB-453E-A5C5-00E6FC8AAD2F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartScene.ViewModel", "SmartScene.ViewModel\SmartScene.ViewModel.csproj", "{CC548654-6E63-4312-9007-07D0333D5DEC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{71326284-7B74-46DC-BDB0-DDDF9A4B9E72}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{71326284-7B74-46DC-BDB0-DDDF9A4B9E72}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{71326284-7B74-46DC-BDB0-DDDF9A4B9E72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E657B12E-FEFB-453E-A5C5-00E6FC8AAD2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E657B12E-FEFB-453E-A5C5-00E6FC8AAD2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E657B12E-FEFB-453E-A5C5-00E6FC8AAD2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E657B12E-FEFB-453E-A5C5-00E6FC8AAD2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC548654-6E63-4312-9007-07D0333D5DEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC548654-6E63-4312-9007-07D0333D5DEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC548654-6E63-4312-9007-07D0333D5DEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC548654-6E63-4312-9007-07D0333D5DEC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

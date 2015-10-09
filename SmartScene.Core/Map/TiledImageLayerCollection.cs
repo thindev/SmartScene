@@ -2,15 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Csla;
 using System.Threading.Tasks;
 
 namespace SmartScene.Core.Map
 {
     [Serializable]
-    public enum TiledImageLayerType
+    public class TiledImageLayerCollection:BusinessListBase<TiledImageLayerCollection,TiledImageLayer>
     {
-        ArcgisTiledLayer,
-        GoogleTiledLayer,
-        BaiduTiledLayer,
+
     }
 }
