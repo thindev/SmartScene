@@ -1,12 +1,71 @@
-﻿<Window x:Class="SmartScene.View.MainWindow"
+﻿<mahApps:MetroWindow
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SmartScene.View"
+       xmlns:mahApps="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+    xmlns:dragablz="clr-namespace:Dragablz;assembly=Dragablz"
+    xmlns:dockablz="clr-namespace:Dragablz.Dockablz;assembly=Dragablz"
+       xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+       xmlns:esri="http://schemas.esri.com/arcgis/client/2009"
+       x:Class="SmartScene.View.MainWindow"
+     GlowBrush="{DynamicResource AccentColorBrush}"
+                      NonActiveGlowBrush="#FFD4D4D4"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow"  NonActiveWindowTitleBrush="#FF7EB5D4" d:DesignWidth="782" d:DesignHeight="570" >
+    <mahApps:MetroContentControl>
     <Grid>
-        
+            <Grid.RowDefinitions>
+                <RowDefinition Height="32"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="28"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="84"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+             <GridSplitter Grid.Column="1" HorizontalAlignment="Left" Width="6"/>
+            <Border Background="Beige" Grid.Column="2">
+                    <dockablz:Layout >
+                        <dockablz:Layout.InterLayoutClient>
+                            <dragablz:DefaultInterLayoutClient></dragablz:DefaultInterLayoutClient>
+                        </dockablz:Layout.InterLayoutClient>
+                <dragablz:TabablzControl>
+                    <dragablz:TabablzControl.InterTabController>
+                                <dragablz:InterTabController >
+                            <dragablz:InterTabController.InterTabClient>
+                                <local:InterTabClient/>
+                            </dragablz:InterTabController.InterTabClient>
+                        </dragablz:InterTabController>
+                    </dragablz:TabablzControl.InterTabController>
+                    <TabItem Header="CARDS">
+                       
+                    </TabItem>
+                    <TabItem Header="BUTTONS">
+                       
+                    </TabItem>
+                    <TabItem Header="FIELDS">
+                       
+                    </TabItem>
+                    <TabItem Header="PALETTE">
+                       
+                    </TabItem>
+                    <TabItem Header="DIALOGS">
+                       
+                    </TabItem>
+                    <TabItem Header="MAHAPPS">
+                       
+                    </TabItem>
+                </dragablz:TabablzControl>
+                    </dockablz:Layout>
+                </Border>
+        </Grid>
+        <StatusBar Grid.Row="2">
+            
+        </StatusBar>
     </Grid>
-</Window>
+    </mahApps:MetroContentControl>
+</mahApps:MetroWindow>

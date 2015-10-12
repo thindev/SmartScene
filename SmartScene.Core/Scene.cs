@@ -11,6 +11,6 @@ namespace SmartScene.Core
     [Serializable]
     public class Scene:BusinessBase<Scene>
     {
-        public static readonly PropertyInfo<SceneMap> MapProperty=RegisterProperty
+       // public static readonly PropertyInfo<SceneMap> MapProperty=RegisterProperty
     }
 }

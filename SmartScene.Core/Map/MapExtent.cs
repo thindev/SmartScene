@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using NetTopologySuite.Geometries;
 
 namespace SmartScene.Core.Map
 {
@@ -16,7 +17,7 @@ namespace SmartScene.Core.Map
 
         public MapExtent(double xMin,double yMin,double xMax,double yMax)
         {
-            XMax = xMax;
+            XMax = xMax; 
             XMin = xMin;
             YMax = yMax;
             YMin = yMin;

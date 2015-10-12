@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace SmartScene.Core.Map
 {
     [Serializable]
-    public class TiledImageLayerCollection:BusinessListBase<TiledImageLayerCollection,TiledImageLayer>
+    public class LayerCollection:BusinessListBase<LayerCollection, ILayer>
     {
 
     }

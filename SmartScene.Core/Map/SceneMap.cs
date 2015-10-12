@@ -19,13 +19,13 @@ namespace SmartScene.Core.Map
             set { SetProperty(FullExtentProperty, value); }
         }
 
-        public TiledImageLayerCollection TiledImageLayers
+        public LayerCollection Layers
         {
-            get { return GetProperty(TiledImageLayersProperty); }
-            set { SetProperty(TiledImageLayersProperty, value); }
+            get { return GetProperty(LayersProperty); }
+            set { SetProperty(LayersProperty, value); }
         }
 
-        public static readonly PropertyInfo<TiledImageLayerCollection> TiledImageLayersProperty = RegisterProperty<TiledImageLayerCollection>(b => b.TiledImageLayers);
+        public static readonly PropertyInfo<LayerCollection> LayersProperty = RegisterProperty<LayerCollection>(b => b.Layers);
 
 
     }

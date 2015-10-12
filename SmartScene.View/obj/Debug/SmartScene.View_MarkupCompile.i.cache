@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 F:\GitHub\SmartScene\SmartScene.View\App.xaml
-3155948767
+51797115388
 
-11420371179
-1584063691
-MainWindow.xaml;MapView.xaml;SceneView.xaml;
+13-131451162
+27-1242129073
+InterTabWindow.xaml;MainWindow.xaml;MapView.xaml;Resources\Icons.xaml;SceneView.xaml;
 
-False
+True
 

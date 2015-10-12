@@ -33,6 +33,9 @@
     <Reference Include="Csla">
       <HintPath>E:\Projects\Breakthrough\src\csla-4.5.701\csla-4.5.701\Bin\Debug\NET\Csla.dll</HintPath>
     </Reference>
+    <Reference Include="GeoAPI">
+      <HintPath>..\..\GeoAPI.dll</HintPath>
+    </Reference>
     <Reference Include="NetTopologySuite">
       <HintPath>E:\Projects\Breakthrough\Dlls\NetTopologySuite.dll</HintPath>
     </Reference>
@@ -47,8 +50,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IScene.cs" />
+    <Compile Include="Map\ILayer.cs" />
     <Compile Include="Map\SingleImageLayer.cs" />
-    <Compile Include="Map\TiledImageLayerCollection.cs" />
+    <Compile Include="Map\LayerCollection.cs" />
     <Compile Include="Map\TiledImageLayerType.cs" />
     <Compile Include="Map\MapExtent.cs" />
     <Compile Include="Map\SceneMap.cs" />
