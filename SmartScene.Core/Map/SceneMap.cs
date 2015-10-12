@@ -4,14 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Csla;
+using GeoAPI.Geometries;
+
 
 namespace SmartScene.Core.Map
 {
     [Serializable]
     public class SceneMap:BusinessBase<SceneMap>
     {
-        public static readonly PropertyInfo<MapExtent> FullExtentProperty = RegisterProperty<MapExtent>(b => b.FullExtent);
-        public MapExtent FullExtent
+        public static readonly PropertyInfo<Envelope> FullExtentProperty = RegisterProperty<Envelope>(b => b.FullExtent);
+        public Envelope FullExtent
         {
             get { return GetProperty(FullExtentProperty); }
             set { SetProperty(FullExtentProperty, value); }
