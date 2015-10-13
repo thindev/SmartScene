@@ -6,9 +6,9 @@
         xmlns:local="clr-namespace:SmartScene.View"
         xmlns:dragablz="clr-namespace:Dragablz;assembly=Dragablz"
         mc:Ignorable="d"
-        Title="InterTabWindow" Height="300" Width="300">
+        Title="InterTabWindow" Height="300" Width="300" BorderThickness="1" Topmost="True" >
     <Grid>
-        <dragablz:TabablzControl Name="tc" >
+        <dragablz:TabablzControl Name="tc" ShowDefaultCloseButton="True">
             <dragablz:TabablzControl.InterTabController>
                 <dragablz:InterTabController >
                     <dragablz:InterTabController.InterTabClient>

@@ -14,58 +14,47 @@
                       NonActiveGlowBrush="#FFD4D4D4"
         mc:Ignorable="d"
         Title="MainWindow"  NonActiveWindowTitleBrush="#FF7EB5D4" d:DesignWidth="782" d:DesignHeight="570" >
+
     <mahApps:MetroContentControl>
-    <Grid>
+        <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="32"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="28"/>
             </Grid.RowDefinitions>
+            <Border Grid.Row="0">
+                <StackPanel Orientation="Horizontal">
+                    <Button Click="Button_Click">sdfsd</Button>
+                </StackPanel>
+            </Border>
             <Grid Grid.Row="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="84"/>
-                <ColumnDefinition Width="auto"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-             <GridSplitter Grid.Column="1" HorizontalAlignment="Left" Width="6"/>
-            <Border Background="Beige" Grid.Column="2">
-                    <dockablz:Layout >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="84"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <GridSplitter Grid.Column="1" HorizontalAlignment="Left" Width="6"/>
+                <Border Background="Beige" Grid.Column="2">
+                    <dockablz:Layout Background="White" Name="dockLayout">
                         <dockablz:Layout.InterLayoutClient>
                             <dragablz:DefaultInterLayoutClient></dragablz:DefaultInterLayoutClient>
                         </dockablz:Layout.InterLayoutClient>
-                <dragablz:TabablzControl>
-                    <dragablz:TabablzControl.InterTabController>
+                        <dragablz:TabablzControl ShowDefaultCloseButton="True" ItemsSource="{Binding MainTabPanels}" >
+                            <dragablz:TabablzControl.InterTabController>
                                 <dragablz:InterTabController >
-                            <dragablz:InterTabController.InterTabClient>
-                                <local:InterTabClient/>
-                            </dragablz:InterTabController.InterTabClient>
-                        </dragablz:InterTabController>
-                    </dragablz:TabablzControl.InterTabController>
-                    <TabItem Header="CARDS">
-                       
-                    </TabItem>
-                    <TabItem Header="BUTTONS">
-                       
-                    </TabItem>
-                    <TabItem Header="FIELDS">
-                       
-                    </TabItem>
-                    <TabItem Header="PALETTE">
-                       
-                    </TabItem>
-                    <TabItem Header="DIALOGS">
-                       
-                    </TabItem>
-                    <TabItem Header="MAHAPPS">
-                       
-                    </TabItem>
-                </dragablz:TabablzControl>
+                                    <dragablz:InterTabController.InterTabClient>
+                                        <local:InterTabClient/>
+                                    </dragablz:InterTabController.InterTabClient>
+                                </dragablz:InterTabController>
+                            </dragablz:TabablzControl.InterTabController>
+
+                        </dragablz:TabablzControl>
                     </dockablz:Layout>
                 </Border>
+            </Grid>
+            <StatusBar Grid.Row="2">
+
+            </StatusBar>
         </Grid>
-        <StatusBar Grid.Row="2">
-            
-        </StatusBar>
-    </Grid>
     </mahApps:MetroContentControl>
 </mahApps:MetroWindow>

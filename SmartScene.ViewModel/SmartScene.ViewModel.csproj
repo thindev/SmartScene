@@ -40,8 +40,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppFrameworkVM.cs" />
+    <Compile Include="MainTabPanel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SceneVM.cs" />
+    <Compile Include="TabPanelContentType.cs" />
     <Compile Include="ViewModelBase.cs" />
   </ItemGroup>
   <ItemGroup>

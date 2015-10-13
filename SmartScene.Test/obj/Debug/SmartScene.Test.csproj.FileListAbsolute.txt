@@ -12,4 +12,3 @@ F:\GitHub\SmartScene\SmartScene.Test\obj\Debug\SmartScene.Test.Properties.Resour
 F:\GitHub\SmartScene\SmartScene.Test\obj\Debug\SmartScene.Test.csproj.GenerateResource.Cache
 F:\GitHub\SmartScene\SmartScene.Test\obj\Debug\SmartScene.Test.exe
 F:\GitHub\SmartScene\SmartScene.Test\obj\Debug\SmartScene.Test.pdb
-F:\GitHub\SmartScene\SmartScene.Test\obj\Debug\SmartScene.Test.csprojResolveAssemblyReference.cache

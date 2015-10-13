@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MahApps.Metro.Controls;
+using SmartScene.ViewModel;
 
 namespace SmartScene.View
 {
@@ -21,11 +22,17 @@ namespace SmartScene.View
     /// </summary>
     public partial class MainWindow : MetroWindow
     {
+
+        AppFrameworkVM _appFrameworkVM = new AppFrameworkVM();
         public MainWindow()
         {
             InitializeComponent();
+            this.DataContext = _appFrameworkVM;
         }
 
-     
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            _appFrameworkVM.MainTabPanels.Add(new MainTabPanel() { Title="sdfsdfas"});
+        }
     }
 }
