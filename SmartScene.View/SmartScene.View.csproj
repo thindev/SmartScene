@@ -87,7 +87,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="InterTabClient.cs" />
     <Compile Include="InterTabWindow.xaml.cs">
       <DependentUpon>InterTabWindow.xaml</DependentUpon>
     </Compile>
