@@ -22,17 +22,41 @@ namespace SmartScene.View
     /// </summary>
     public partial class MainWindow : MetroWindow
     {
-
-        AppFrameworkVM _appFrameworkVM = new AppFrameworkVM();
+        
+        MainWindowVM _mainWindowVM = new MainWindowVM();
         public MainWindow()
         {
             InitializeComponent();
-            this.DataContext = _appFrameworkVM;
+            _mainWindowVM.ThemeManagement = new ThemeManagement();
+            this.DataContext = _mainWindowVM;
+        }
+
+        public MainWindowVM MainWindowVM
+        {
+            get
+            {
+                return _mainWindowVM;
+            }
+
+          
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            _appFrameworkVM.MainTabPanels.Add(new MainTabPanel() { Title="sdfsdfas"});
+            _mainWindowVM.TabControlVMs[0].TabPanelVMs.Add(new TabPanelVM() { Title="大楼全景地图", Content = DateTime.Now.ToString() });
+        }
+
+        private void GridSplitter_DragCompleted(object sender, System.Windows.Controls.Primitives.DragCompletedEventArgs e)
+        {
+            //this.expender_left.Width = this.expender_left.ActualWidth ;
+            this.expender_left.Width = double.NaN;
+            this.leftSide.Width= new GridLength(0,GridUnitType.Auto);
+            
+        }
+
+        private void MetroWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+           
         }
     }
 }

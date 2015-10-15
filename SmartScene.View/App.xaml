@@ -13,24 +13,11 @@
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Colors.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Blue.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseLight.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/Dragablz;component/Themes/MahApps.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/SmartScene.View.Resources;component/Themes/Dragablz.xaml"/>
             </ResourceDictionary.MergedDictionaries>
-
-            <!-- Dragablz Material Design -->
-            <Style TargetType="{x:Type dragablz:TabablzControl}" BasedOn="{StaticResource MahAppsTabablzControlStyle}" >
-                <Setter Property="CustomHeaderItemTemplate">
-                    <Setter.Value>
-                        <DataTemplate>
-                            <ContentControl Content="{Binding Title}" Margin="2,2,4,2"/>
-                        </DataTemplate>
-                    </Setter.Value>
-                </Setter>
-                
-                <!--<Style.Triggers>
-                    <Trigger Property="ItemsPanel.Chidren.Count" Value="0" ></Trigger>
-                </Style.Triggers>-->
+            <Style  TargetType="{x:Type GridSplitter}">
+                <Setter Property="Background" Value="Transparent"/>
             </Style>
-
         </ResourceDictionary>
     </Application.Resources>
 

@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using SmartScene.ViewModel;
 
 namespace SmartScene.View
 {
@@ -27,6 +28,42 @@ namespace SmartScene.View
         public TabablzControl TabablzControl
         {
             get { return tc; }
+        }
+
+        MainWindowVM _mainWindow;
+        public MainWindowVM MainWindowVM
+        {
+            get
+            {
+                return _mainWindow;
+            }
+
+            set
+            {
+                _mainWindow = value;
+            }
+        }
+
+
+        public TabWindowVM TabWindowVM
+        {
+            get
+            {
+                return _tabWindowVM;
+            }
+
+            set
+            {
+                _tabWindowVM = value;
+                this.DataContext = _tabWindowVM;
+            }
+        }
+
+        TabWindowVM _tabWindowVM;
+
+        private void DragablzWindow_Closed(object sender, EventArgs e)
+        {
+            this.MainWindowVM.TabWindowVMs.Remove(this.TabWindowVM);
         }
     }
 }

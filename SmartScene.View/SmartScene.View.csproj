@@ -87,6 +87,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="InterLayoutClient.cs" />
+    <Compile Include="InterTabClient.cs" />
     <Compile Include="InterTabWindow.xaml.cs">
       <DependentUpon>InterTabWindow.xaml</DependentUpon>
     </Compile>
@@ -96,6 +98,7 @@
     <Compile Include="SceneView.xaml.cs">
       <DependentUpon>SceneView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ThemeManagement.cs" />
     <Page Include="InterTabWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -164,6 +167,10 @@
     <ProjectReference Include="..\SmartScene.Core\SmartScene.Core.csproj">
       <Project>{71326284-7b74-46dc-bdb0-dddf9a4b9e72}</Project>
       <Name>SmartScene.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SmartScene.View.Resources\SmartScene.View.Resources.csproj">
+      <Project>{98ee3fe0-ca1f-4638-b783-782739c23b2a}</Project>
+      <Name>SmartScene.View.Resources</Name>
     </ProjectReference>
     <ProjectReference Include="..\SmartScene.ViewModel\SmartScene.ViewModel.csproj">
       <Project>{cc548654-6e63-4312-9007-07d0333d5dec}</Project>

@@ -10,51 +10,139 @@
        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
        xmlns:esri="http://schemas.esri.com/arcgis/client/2009"
        x:Class="SmartScene.View.MainWindow"
-     GlowBrush="{DynamicResource AccentColorBrush}"
-                      NonActiveGlowBrush="#FFD4D4D4"
+     GlowBrush="{DynamicResource AccentColorBrush}" Loaded="MetroWindow_Loaded"
+                      NonActiveGlowBrush="{DynamicResource AccentColorBrush4}"
         mc:Ignorable="d"
-        Title="MainWindow"  NonActiveWindowTitleBrush="#FF7EB5D4" d:DesignWidth="782" d:DesignHeight="570" >
+        Title="MainWindow"  NonActiveWindowTitleBrush="{DynamicResource AccentColorBrush4}" d:DesignWidth="782" d:DesignHeight="570" >
+    <mahApps:MetroWindow.Resources>
+        <ResourceDictionary>
+            <Ellipse x:Key="AppThemeMenuIcon"
+                     x:Shared="False"
+                     Width="16"
+                     Height="16"
+                     StrokeThickness="1"
+                     Stroke="{Binding BorderColorBrush, Mode=OneWay}"
+                     Fill="{Binding ColorBrush, Mode=OneWay}" />
+        <Ellipse x:Key="AccentMenuIcon"
+                     x:Shared="False"
+                     Width="16"
+                     Height="16"
+                     Fill="{Binding ColorBrush, Mode=OneWay}" />
 
-    <mahApps:MetroContentControl>
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="32"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="28"/>
-            </Grid.RowDefinitions>
-            <Border Grid.Row="0">
-                <StackPanel Orientation="Horizontal">
-                    <Button Click="Button_Click">sdfsd</Button>
-                </StackPanel>
+        <Style x:Key="AppThemeMenuItemStyle"
+                   TargetType="{x:Type MenuItem}"
+                   BasedOn="{StaticResource MetroMenuItem}">
+            <Setter Property="Command"
+                        Value="{Binding ChangeAccentCommand}" />
+            <Setter Property="Icon"
+                        Value="{StaticResource AppThemeMenuIcon}" />
+            <Setter Property="Header"
+                        Value="{Binding Name, Mode=OneWay}" />
+        </Style>
+
+        <Style x:Key="AccentColorMenuItemStyle"
+                   TargetType="{x:Type MenuItem}"
+                   BasedOn="{StaticResource MetroMenuItem}">
+            <Setter Property="Command"
+                        Value="{Binding ChangeAccentCommand}" />
+            <Setter Property="Icon"
+                        Value="{StaticResource AccentMenuIcon}" />
+            <Setter Property="Header"
+                        Value="{Binding Name, Mode=OneWay}" />
+        </Style>
+        </ResourceDictionary>
+    </mahApps:MetroWindow.Resources>
+    <mahApps:MetroWindow.RightWindowCommands>
+        <mahApps:WindowCommands >
+            <Button 
+                    ToolTip="SizeToContent demo"
+                    Content="STC" />
+            <Button 
+                    ToolTip="Visual Studio style demo"
+                    Content="VS" />
+            <Button 
+                    ToolTip="Flyouts demo window"
+                    Content="Flyouts" />
+            <Button 
+                    ToolTip="All MahApp icons"
+                    Content="Icons" />
+            <Button 
+                    ToolTip="Clean window style demo"
+                    Content="Clean" />
+            <!--<Button Click="LaunchRibbonDemo" Content="Ribbon Demo (.NET 4.5)" />-->
+            <Button 
+                    ToolTip="The interop demo"
+                    Content="Interop" />
+            <Button 
+                    ToolTip="Window navigation demo"
+                    Content="Navigation" />
+            <ToggleButton
+                          ToolTip="Shows the toggle button magic"
+                          x:Name="MagicToggleButton"
+                         />
+            <ToggleButton 
+                          ToolTip="Enable quit confirmation dialog on exit"
+                          />
+        </mahApps:WindowCommands>
+    </mahApps:MetroWindow.RightWindowCommands>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+        <Menu   Grid.Row="0"
+                  Margin="5"
+                  VerticalAlignment="Stretch"
+                  HorizontalAlignment="Left">
+            <MenuItem Header="文件"
+                         >
+                <MenuItem Header="click" Click="Button_Click"/>
+            </MenuItem>
+            <MenuItem Header="工具"
+                          />
+            <MenuItem Header="Theme"
+                          ItemsSource="{Binding ThemeManagement.AppThemes, Mode=OneWay}"
+                          ItemContainerStyle="{StaticResource AppThemeMenuItemStyle}" />
+            <MenuItem Header="Accent"
+                          ItemsSource="{Binding ThemeManagement.AccentColors, Mode=OneWay}"
+                          ItemContainerStyle="{StaticResource AccentColorMenuItemStyle}" />
+
+        </Menu>
+
+        <Grid Grid.Row="1" Margin="4,0,4,4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" Name="leftSide"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <Expander ExpandDirection="Right" Margin="0" Name="expender_left">
+                <TextBlock Width="260"/>
+            </Expander>
+            <GridSplitter Grid.Column="1" DragCompleted="GridSplitter_DragCompleted" HorizontalAlignment="Left" Width="5"/>
+            <Border Grid.Column="2" >
+                <dockablz:Layout Name="dockLayout" >
+                    <dockablz:Layout.InterLayoutClient>
+                        <local:InterLayoutClient></local:InterLayoutClient>
+                    </dockablz:Layout.InterLayoutClient>
+                    <dragablz:TabablzControl Name="tabControl_default" DataContext="{Binding TabControlVMs[0]}" ItemsSource="{Binding TabPanelVMs}" ShowDefaultCloseButton="True" >
+                        <dragablz:TabablzControl.InterTabController>
+                            <dragablz:InterTabController >
+                                <dragablz:InterTabController.InterTabClient>
+                                    <local:InterTabClient/>
+                                </dragablz:InterTabController.InterTabClient>
+                            </dragablz:InterTabController>
+                        </dragablz:TabablzControl.InterTabController>
+
+                    </dragablz:TabablzControl>
+                </dockablz:Layout>
             </Border>
-            <Grid Grid.Row="1">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="84"/>
-                    <ColumnDefinition Width="auto"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <GridSplitter Grid.Column="1" HorizontalAlignment="Left" Width="6"/>
-                <Border Background="Beige" Grid.Column="2">
-                    <dockablz:Layout Background="White" Name="dockLayout">
-                        <dockablz:Layout.InterLayoutClient>
-                            <dragablz:DefaultInterLayoutClient></dragablz:DefaultInterLayoutClient>
-                        </dockablz:Layout.InterLayoutClient>
-                        <dragablz:TabablzControl ShowDefaultCloseButton="True" ItemsSource="{Binding MainTabPanels}" >
-                            <dragablz:TabablzControl.InterTabController>
-                                <dragablz:InterTabController >
-                                    <dragablz:InterTabController.InterTabClient>
-                                        <local:InterTabClient/>
-                                    </dragablz:InterTabController.InterTabClient>
-                                </dragablz:InterTabController>
-                            </dragablz:TabablzControl.InterTabController>
-
-                        </dragablz:TabablzControl>
-                    </dockablz:Layout>
-                </Border>
-            </Grid>
-            <StatusBar Grid.Row="2">
-
-            </StatusBar>
         </Grid>
-    </mahApps:MetroContentControl>
+        <StatusBar Grid.Row="2" Height="24">
+
+        </StatusBar>
+    </Grid>
 </mahApps:MetroWindow>

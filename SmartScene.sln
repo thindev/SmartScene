@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartScene.View", "SmartSce
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartScene.ViewModel", "SmartScene.ViewModel\SmartScene.ViewModel.csproj", "{CC548654-6E63-4312-9007-07D0333D5DEC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartScene.View.Resources", "SmartScene.View.Resources\SmartScene.View.Resources.csproj", "{98EE3FE0-CA1F-4638-B783-782739C23B2A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{CC548654-6E63-4312-9007-07D0333D5DEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CC548654-6E63-4312-9007-07D0333D5DEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CC548654-6E63-4312-9007-07D0333D5DEC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98EE3FE0-CA1F-4638-B783-782739C23B2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98EE3FE0-CA1F-4638-B783-782739C23B2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98EE3FE0-CA1F-4638-B783-782739C23B2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98EE3FE0-CA1F-4638-B783-782739C23B2A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

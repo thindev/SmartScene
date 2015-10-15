@@ -7,6 +7,7 @@ using System.Windows;
 
 using Dragablz;
 using System.Windows.Data;
+using SmartScene.ViewModel;
 
 namespace SmartScene.View
 {
@@ -14,54 +15,47 @@ namespace SmartScene.View
     {
         public INewTabHost<Window> GetNewHost(IInterTabClient interTabClient, object partition, TabablzControl source)
         {
-            var view = new InterTabWindow();
+            InterTabWindow view = new InterTabWindow();
+            Window window = Window.GetWindow(source);
+            TabControlVM tvm = (TabControlVM)source.DataContext;
+
+            MainWindowVM mvm = null;
+            if(window is MainWindow)
+            {
+                mvm = (window as MainWindow).MainWindowVM;
+                //if(tvm.TabPanelVMs.Count==1)
+                //{
+                //    mvm.TabControlVMs.Remove(tvm);
+                //}
+            }
+            else if(window is InterTabWindow)
+            {
+                mvm = (window as InterTabWindow).MainWindowVM;
+            }
+            view.MainWindowVM =mvm;
+            view.TabWindowVM = new TabWindowVM() { TabControlVM= new TabControlVM() };
+            view.MainWindowVM.TabWindowVMs.Add(view.TabWindowVM);
+           
             NewTabHost<InterTabWindow> th= new  NewTabHost<InterTabWindow>(view, view.TabablzControl) ;
             return th;
         }
 
         public TabEmptiedResponse TabEmptiedHandler(TabablzControl tabControl, Window window)
         {
-
             if (window is MainWindow)
             {
                 MainWindow mw = (window as MainWindow);
-                if(mw.dockLayout.Content is TabablzControl)
-                {
+                if (mw.MainWindowVM.TabControlVMs.Count > 1)
+                    mw.MainWindowVM.TabControlVMs.Remove(tabControl.DataContext as TabControlVM);
+                else
                     return TabEmptiedResponse.DoNothing;
-                }
-                if (tabControl.ItemsSource != null)
-                {
-                    System.Collections.ObjectModel.ObservableCollection<SmartScene.ViewModel.MainTabPanel> source = (System.Collections.ObjectModel.ObservableCollection <SmartScene.ViewModel.MainTabPanel>) tabControl.ItemsSource;
-                    Dragablz.Dockablz.Branch b = (Dragablz.Dockablz.Branch)mw.dockLayout.Content;
-                    if ((b.FirstItem is Dragablz.TabablzControl) && b.FirstItem != tabControl)
-                    {
-                        TabablzControl tc = b.FirstItem as Dragablz.TabablzControl;
-                        Binding bind = new Binding();
-                        bind.Source = source; 
-                        
-                        foreach(var item in tc.Items)
-                        {
-                            source.Add(item as SmartScene.ViewModel.MainTabPanel);
-                        }
-                        tc.Items.Clear();
-                        BindingOperations.SetBinding(tc, TabablzControl.ItemsSourceProperty, bind);
-                    }
-                    else if ((b.SecondItem is Dragablz.TabablzControl)&&b.SecondItem!=tabControl)
-                    {
-                        TabablzControl tc = b.SecondItem as Dragablz.TabablzControl;
-                        Binding bind = new Binding();
-                        bind.Source = source;
-                        foreach (var item in tc.Items)
-                        {
-                            source.Add(item as SmartScene.ViewModel.MainTabPanel);
-                        }
-                        tc.Items.Clear();
-                        BindingOperations.SetBinding(tc,TabablzControl.ItemsSourceProperty,bind);
-                    }
-                }
-                
             }
-           
+           else if(window is InterTabWindow)
+            {
+                InterTabWindow ittWin = (InterTabWindow)window;
+                MainWindowVM mvm = ittWin.MainWindowVM;
+                mvm.TabWindowVMs.Remove(ittWin.TabWindowVM);
+            }
             return TabEmptiedResponse.CloseWindowOrLayoutBranch;
         }
     }

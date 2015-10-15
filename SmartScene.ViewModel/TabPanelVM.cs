@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SmartScene.ViewModel
 {
-    public class MainTabPanel:ViewModelBase
+    public class TabPanelVM:ViewModelBase
     {
         string _title;
         TabPanelContentType _contentType;
