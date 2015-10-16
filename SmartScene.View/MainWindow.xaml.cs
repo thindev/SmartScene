@@ -43,7 +43,7 @@ namespace SmartScene.View
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            _mainWindowVM.TabControlVMs[0].TabPanelVMs.Add(new TabPanelVM() { Title="大楼全景地图", Content = DateTime.Now.ToString() });
+            _mainWindowVM.TabControlVMs[0].TabPanelVMs.Add(new TabPanelVM() { Title="标签页面首页", Content = DateTime.Now.ToString() });
         }
 
         private void GridSplitter_DragCompleted(object sender, System.Windows.Controls.Primitives.DragCompletedEventArgs e)

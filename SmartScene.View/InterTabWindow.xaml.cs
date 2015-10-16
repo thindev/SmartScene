@@ -21,9 +21,11 @@ namespace SmartScene.View
     /// </summary>
     public partial class InterTabWindow : DragablzWindow
     {
-        public InterTabWindow()
+        public InterTabWindow(TabWindowVM value)
         {
             InitializeComponent();
+            _tabWindowVM = value;
+            this.DataContext = _tabWindowVM;
         }
         public TabablzControl TabablzControl
         {
@@ -50,12 +52,6 @@ namespace SmartScene.View
             get
             {
                 return _tabWindowVM;
-            }
-
-            set
-            {
-                _tabWindowVM = value;
-                this.DataContext = _tabWindowVM;
             }
         }
 

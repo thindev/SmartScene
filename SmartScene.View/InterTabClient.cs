@@ -15,25 +15,23 @@ namespace SmartScene.View
     {
         public INewTabHost<Window> GetNewHost(IInterTabClient interTabClient, object partition, TabablzControl source)
         {
-            InterTabWindow view = new InterTabWindow();
+            InterTabWindow view = new InterTabWindow(new TabWindowVM() { TabControlVM = new TabControlVM() });
             Window window = Window.GetWindow(source);
             TabControlVM tvm = (TabControlVM)source.DataContext;
-
             MainWindowVM mvm = null;
             if(window is MainWindow)
             {
                 mvm = (window as MainWindow).MainWindowVM;
-                //if(tvm.TabPanelVMs.Count==1)
-                //{
-                //    mvm.TabControlVMs.Remove(tvm);
-                //}
+                if (tvm.TabPanelVMs.Count == 1)
+                {
+                    mvm.TabControlVMs.Remove(tvm);
+                }
             }
             else if(window is InterTabWindow)
             {
                 mvm = (window as InterTabWindow).MainWindowVM;
             }
             view.MainWindowVM =mvm;
-            view.TabWindowVM = new TabWindowVM() { TabControlVM= new TabControlVM() };
             view.MainWindowVM.TabWindowVMs.Add(view.TabWindowVM);
            
             NewTabHost<InterTabWindow> th= new  NewTabHost<InterTabWindow>(view, view.TabablzControl) ;
@@ -45,16 +43,15 @@ namespace SmartScene.View
             if (window is MainWindow)
             {
                 MainWindow mw = (window as MainWindow);
-                if (mw.MainWindowVM.TabControlVMs.Count > 1)
-                    mw.MainWindowVM.TabControlVMs.Remove(tabControl.DataContext as TabControlVM);
-                else
+                if (mw.MainWindowVM.TabControlVMs.Count == 1)
+                {
                     return TabEmptiedResponse.DoNothing;
-            }
-           else if(window is InterTabWindow)
-            {
-                InterTabWindow ittWin = (InterTabWindow)window;
-                MainWindowVM mvm = ittWin.MainWindowVM;
-                mvm.TabWindowVMs.Remove(ittWin.TabWindowVM);
+                }
+                else
+                {
+                    mw.MainWindowVM.TabControlVMs.Remove(tabControl.DataContext as TabControlVM);
+                }
+                    
             }
             return TabEmptiedResponse.CloseWindowOrLayoutBranch;
         }
