@@ -5,10 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SmartScene.View"
         xmlns:dragablz="clr-namespace:Dragablz;assembly=Dragablz"
+        xmlns:dockablz="clr-namespace:Dragablz.Dockablz;assembly=Dragablz"
         mc:Ignorable="d"
         Title="InterTabWindow" Height="300" Width="300" BorderThickness="1" Topmost="True" Closed="DragablzWindow_Closed">
     <Grid>
-        <dragablz:TabablzControl Name="tc" ShowDefaultCloseButton="True" DataContext="{Binding TabControlVM}" ItemsSource="{Binding TabPanels}">
+        <dockablz:Layout Name="dockLayout" >
+            <dockablz:Layout.InterLayoutClient>
+                <local:InterLayoutClient></local:InterLayoutClient>
+            </dockablz:Layout.InterLayoutClient>
+            <dragablz:TabablzControl Name="tc" ShowDefaultCloseButton="True" DataContext="{Binding DefaultTabControlVM}" ItemsSource="{Binding TabPanels}" >
             <dragablz:TabablzControl.InterTabController>
                 <dragablz:InterTabController >
                     <dragablz:InterTabController.InterTabClient>
@@ -17,5 +22,6 @@
                 </dragablz:InterTabController>
             </dragablz:TabablzControl.InterTabController>
         </dragablz:TabablzControl>
+            </dockablz:Layout>
     </Grid>
 </dragablz:DragablzWindow>

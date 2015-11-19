@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Csla;
 using GeoAPI.Geometries;
+using ESRI.ArcGIS.Client;
 
 
 namespace SmartScene.Core.Map

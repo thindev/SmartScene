@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media;
+using SmartScene.ViewModel;
 
-namespace SmartScene.ViewModel
+namespace SmartScene.ViewModel.Tab
 {
     public class TabPanelVM:ViewModelBase
     {
@@ -29,6 +31,8 @@ namespace SmartScene.ViewModel
                 
             }
         }
+
+       
 
         public TabPanelContentType ContentType
         {
@@ -60,12 +64,62 @@ namespace SmartScene.ViewModel
                 if(_content!=value)
                 {
                     _content = value;
+                    _contentView = null;
                     OnPropertyChanged(()=>Content);
+                    OnPropertyChanged(() => ContentView);
                 }
-                
+            }
+        }
+
+        Visual _contentView;
+        public Visual ContentView
+        {
+            get
+            {
+                if(_contentView==null)
+                 _contentView= ViewModelContext.Current.TabContentViewProvider.GetContentView(this);
+                return _contentView;
+            }
+        }
+
+        public bool IsSelected
+        {
+            get
+            {
+                return _isSelected;
+            }
+
+            set
+            {
+                if(_isSelected!=value)
+                {
+                    _isSelected = value;
+                    OnPropertyChanged(()=>IsSelected);
+                }
                 
             }
         }
+
+        bool _canClose=true;
+        public bool CanClose
+        {
+            get
+            {
+                return _canClose;
+            }
+
+            set
+            {
+                if(_canClose!=value)
+                {
+                    _canClose = value;
+                    OnPropertyChanged(()=>CanClose);
+                }
+               
+            }
+        }
+
+        bool _isSelected;
     }
 
 }

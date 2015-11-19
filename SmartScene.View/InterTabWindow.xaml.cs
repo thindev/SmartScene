@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using SmartScene.ViewModel;
+using SmartScene.ViewModel.Tab;
 
 namespace SmartScene.View
 {
@@ -59,7 +60,7 @@ namespace SmartScene.View
 
         private void DragablzWindow_Closed(object sender, EventArgs e)
         {
-            this.MainWindowVM.TabWindowVMs.Remove(this.TabWindowVM);
+            this.MainWindowVM.TabPanelManagerVM.TabWindowVMs.Remove(this.TabWindowVM);
         }
     }
 }

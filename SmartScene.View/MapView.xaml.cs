@@ -12,8 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using SmartScene.Core.Map;
 using ESRI.ArcGIS.Client;
+using SmartScene.ViewModel.Map;
 
 namespace SmartScene.View
 {
@@ -27,73 +27,27 @@ namespace SmartScene.View
             InitializeComponent();
         }
         Map _map;
-        public static readonly DependencyProperty MapProperty = DependencyProperty.Register("Map", typeof(SceneMap), typeof(MapView), new PropertyMetadata(null, new PropertyChangedCallback(MapPropertyChangedCallback)));
-        public SceneMap Map
+        public static readonly DependencyProperty MapVMProperty = DependencyProperty.Register("MapVM", typeof(MapVM), typeof(MapView), new PropertyMetadata(null, new PropertyChangedCallback(MapVMPropertyChangedCallback)));
+        public MapVM MapVM
         {
-            get {return(SceneMap) base.GetValue(MapProperty); }
-            set { SetValue(MapProperty, value); }
+            get {return(MapVM) base.GetValue(MapVMProperty); }
+            set { SetValue(MapVMProperty, value); }
         }
-        private static void MapPropertyChangedCallback(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        private static void MapVMPropertyChangedCallback(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             MapView mv = (MapView)d;
             mv.grid_Content.Children.Clear();
-            mv._map= mv.GenerateMapControl();
-            mv.grid_Content.Children.Add(mv._map);
-            SceneMap sMap = e.NewValue as SceneMap;
-            if(sMap!=null&&sMap.Layers!=null)
-            {
-                sMap.Layers.CollectionChanged += mv.Layers_CollectionChanged;
-                sMap.Layers.ChildChanged += mv.Layers_ChildChanged;
-               ILayer[] layers= sMap.Layers.OrderBy(x => x.Index).ToArray();
-               foreach (ILayer layer in layers)
-                {
-                    if(layer is TiledImageLayer)
-                    {
-                        TiledImageLayer tiLayer = layer as TiledImageLayer;
-                        TiledMapServiceLayer tiledLayer=null;
-                        switch (tiLayer.ServerType)
-                        {
-                           
-                            case TiledImageLayerType.ArcgisTiledLayer:
-                                {
-                                    tiledLayer = new ArcGISTiledMapServiceLayer() { Url = tiLayer.Url };
-                                    break;
-                                }
-                        }
-                        tiledLayer.Visible = layer.IsVisible;
-                        tiledLayer.ID = layer.ID;
-                        if(tiledLayer!=null)
-                        {
-                            mv._map.Layers.Add(tiledLayer);
-                        }
-                        
-                    }
-                }
-            }
-        }
-
-        private  void Layers_ChildChanged(object sender, Csla.Core.ChildChangedEventArgs e)
-        {
-            
-            throw new NotImplementedException();
-        }
-
-        private  void Layers_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void ClearOldMapValue(SceneMap map)
-        {
-            if (map == null) return;
-
-        }
-
-        private Map GenerateMapControl()
-        {
+            MapVM vm =(MapVM) e.NewValue;
             Map map = new Map();
+            map.SnapToLevels = true;
             map.IsLogoVisible = false;
-            return map;
+            Binding bind = new Binding("LayerCollection");
+            bind.Source = vm;
+            BindingOperations.SetBinding(map, Map.LayersProperty, bind);
+            mv.MapNavigator.Map = map;
+            mv.grid_Content.Children.Add(map);
+           
         }
+
     }
 }

@@ -5,6 +5,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using SmartScene.ViewModel;
+using SmartScene.ViewModel.Tab;
 
 namespace SmartScene.View
 {
@@ -18,8 +19,8 @@ namespace SmartScene.View
         public INewTabHost<UIElement> GetNewHost(object partition, TabablzControl source)
         {
             TabControlVM vm = new TabControlVM();
-            InterTabWindow mw=(InterTabWindow) Window.GetWindow(source);
-            mw.MainWindowVM.TabControlVMs.Add(vm);
+            InterTabWindow mw = (InterTabWindow)Window.GetWindow(source);
+            mw.TabWindowVM.TabControlVMs.Add(vm);
             var tabablzControl = new TabablzControl {DataContext = vm};
             tabablzControl.ItemsSource = vm.TabPanelVMs;
 

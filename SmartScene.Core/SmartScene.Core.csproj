@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SmartScene.Core</RootNamespace>
     <AssemblyName>SmartScene.Core</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -30,11 +31,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Csla">
-      <HintPath>E:\Projects\Breakthrough\src\csla-4.5.701\csla-4.5.701\Bin\Debug\NET\Csla.dll</HintPath>
+    <Reference Include="Csla, Version=4.5.701.0, Culture=neutral, PublicKeyToken=93be5fdc093e4c30, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\bin\Csla.dll</HintPath>
     </Reference>
-    <Reference Include="GeoAPI">
-      <HintPath>..\..\GeoAPI.dll</HintPath>
+    <Reference Include="ESRI.ArcGIS.Client, Version=2.4.0.851, Culture=neutral, PublicKeyToken=29c6dd6e8553d944, processorArchitecture=MSIL" />
+    <Reference Include="GeoAPI, Version=1.7.3.0, Culture=neutral, PublicKeyToken=a1a0da7def465678, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\bin\GeoAPI.dll</HintPath>
     </Reference>
     <Reference Include="NetTopologySuite">
       <HintPath>E:\Projects\Breakthrough\Dlls\NetTopologySuite.dll</HintPath>
@@ -50,7 +54,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IScene.cs" />
+    <Compile Include="Map\EntityMarker.cs" />
     <Compile Include="Map\ILayer.cs" />
+    <Compile Include="Map\MarkerCollection.cs" />
     <Compile Include="Map\SingleImageLayer.cs" />
     <Compile Include="Map\LayerCollection.cs" />
     <Compile Include="Map\TiledImageLayerType.cs" />

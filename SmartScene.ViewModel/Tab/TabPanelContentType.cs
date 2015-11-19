@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SmartScene.ViewModel
+namespace SmartScene.ViewModel.Tab
 {
     public enum TabPanelContentType
     {

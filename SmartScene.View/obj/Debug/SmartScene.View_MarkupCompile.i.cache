@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-F:\GitHub\SmartScene\SmartScene.View\obj\Debug\
+E:\Projects\指挥调度\SmartScene.View\obj\Debug\
 SmartScene.View
 none
 false
 DEBUG;TRACE
-F:\GitHub\SmartScene\SmartScene.View\App.xaml
-4-644595944
+E:\Projects\指挥调度\SmartScene.View\App.xaml
+7411515575
 
-15-530764533
-28730199066
-InterTabWindow.xaml;MainWindow.xaml;MapView.xaml;SceneView.xaml;
+21-1413804127
+19437685502
+InterTabWindow.xaml;LeftSidePanel.xaml;MainWindow.xaml;MapView.xaml;SceneView.xaml;TaskPanel.xaml;Window1.xaml;
 
 False
 
