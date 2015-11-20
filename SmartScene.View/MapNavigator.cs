@@ -138,7 +138,6 @@ namespace SmartScene.View
 
             if (this.checkedToggleButton == this.DrawForZoomIn)
             {
-                this.Map.IsHitTestVisible = false;
                 this.Map.ZoomTo(args.Geometry as ESRI.ArcGIS.Client.Geometry.Envelope);
             }
             else if (this.checkedToggleButton == this.DrawForZoomOut)
@@ -173,7 +172,6 @@ namespace SmartScene.View
 
                 if (newEnv != null)
                 {
-                    this.Map.IsHitTestVisible = false;
                     this.Map.ZoomTo(newEnv);
                 }
                   
@@ -369,9 +367,10 @@ namespace SmartScene.View
             }
             else
             {
+                this.Map.IsHitTestVisible = true;
                 _newExtent = true;
             }
-            this.Map.IsHitTestVisible = true;
+          
             if (this.checkedToggleButton!=null&&this.AutoUncheckZoomButton&&this.isDrawComplete)
             {
                 this.checkedToggleButton.IsChecked = false;
@@ -613,7 +612,12 @@ namespace SmartScene.View
             double num = Math.Log10(this.Map.MaximumResolution);
             double num2 = Math.Log10(this.Map.MinimumResolution);
             double num3 = 1.0 - ((Math.Log10(resolution) - num2) / (num - num2));
-            return Math.Min(1.0, Math.Max(num3, 0.0));
+            double value= Math.Min(1.0, Math.Max(num3, 0.0));
+            if(double.IsNaN(value))
+            {
+                return 0.1;
+            }
+            return value;
         }
         
         private void RotateRing_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)

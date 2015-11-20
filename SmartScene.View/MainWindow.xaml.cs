@@ -16,6 +16,7 @@ using MahApps.Metro.Controls;
 using SmartScene.ViewModel;
 using ESRI.ArcGIS.Client;
 using SmartScene.ViewModel.Tab;
+using SmartScene.ViewModel.Map;
 
 namespace SmartScene.View
 {
@@ -47,9 +48,9 @@ namespace SmartScene.View
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             i++;
-            SceneVM scene=new SceneVM();
-            scene.SelectedMapVM=new ViewModel.Map.MapVM();
-            scene.SelectedMapVM.LayerCollection.Add(new ArcGISTiledMapServiceLayer(){Url= @"http://169.254.80.80:7080/PBS/rest/services/MyPBSService1/MapServer" });
+            SceneVM scene = new SceneVM();
+            scene.SelectedMapVM = new ViewModel.Map.MapVM();
+            scene.SelectedMapVM.LayerCollection.Add(new SingleTileLayer() { TileImageURI = AppDomain.CurrentDomain.BaseDirectory + @"map.PNG", MaximumResolution = 10, MinimumResolution = 0.1 });
             TabPanelVM vm = new TabPanelVM() { Title = "警卫任务" + i.ToString(), Content = scene };
             _mainWindowVM.TabPanelManagerVM.DefaultTabControlVM.TabPanelVMs.Add(vm);
             _mainWindowVM.TabPanelManagerVM.DefaultTabControlVM.SelectedTabPanelVM = vm;
@@ -83,8 +84,10 @@ namespace SmartScene.View
         {
             SceneVM scene = new SceneVM();
             scene.SelectedMapVM = new ViewModel.Map.MapVM();
+            //scene.SelectedMapVM.LayerCollection.Add(new SingleTileLayer() { TileImageURI = AppDomain.CurrentDomain.BaseDirectory + @"map.PNG", MaximumResolution = 10, MinimumResolution = 0.1 });
+            //TabPanelVM vm = new TabPanelVM() { Title = "总指挥屏", Content = scene };
             scene.SelectedMapVM.LayerCollection.Add(new ArcGISTiledMapServiceLayer() { Url = @"http://169.254.80.80:7080/PBS/rest/services/MyPBSService1/MapServer" });
-            TabPanelVM vm = new TabPanelVM() { Title = "总指挥屏" , Content = scene };
+            TabPanelVM vm = new TabPanelVM() { Title = "总指挥屏", Content = scene };
             vm.CanClose = false;
             _mainWindowVM.TabPanelManagerVM.DefaultTabControlVM.TabPanelVMs.Add(vm);
             _mainWindowVM.TabPanelManagerVM.DefaultTabControlVM.SelectedTabPanelVM = vm;

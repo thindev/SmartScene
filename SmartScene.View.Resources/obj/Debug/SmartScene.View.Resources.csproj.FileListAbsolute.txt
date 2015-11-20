@@ -40,7 +40,6 @@ F:\GitHub\SmartScene\SmartScene.View.Resources\bin\Debug\ru\System.Windows.Inter
 F:\GitHub\SmartScene\SmartScene.View.Resources\bin\Debug\zh-Hans\System.Windows.Interactivity.resources.dll
 F:\GitHub\SmartScene\SmartScene.View.Resources\bin\Debug\zh-Hant\System.Windows.Interactivity.resources.dll
 F:\GitHub\SmartScene\SmartScene.View.Resources\obj\Debug\SmartScene.View.Resources.csprojResolveAssemblyReference.cache
-E:\Projects\指挥调度\SmartScene.View.Resources\obj\Debug\SmartScene.View.Resources.csprojResolveAssemblyReference.cache
 E:\Projects\指挥调度\SmartScene.View.Resources\obj\Debug\SmartScene.View.Resources_MarkupCompile.cache
 E:\Projects\指挥调度\SmartScene.View.Resources\bin\Debug\SmartScene.View.Resources.dll
 E:\Projects\指挥调度\SmartScene.View.Resources\bin\Debug\SmartScene.View.Resources.pdb
@@ -59,3 +58,4 @@ E:\Projects\指挥调度\SmartScene.View.Resources\obj\Debug\Themes\Dragablz.bam
 E:\Projects\指挥调度\SmartScene.View.Resources\obj\Debug\SmartScene.View.Resources.g.resources
 E:\Projects\指挥调度\SmartScene.View.Resources\obj\Debug\SmartScene.View.Resources.dll
 E:\Projects\指挥调度\SmartScene.View.Resources\obj\Debug\SmartScene.View.Resources.pdb
+E:\Projects\指挥调度\SmartScene.View.Resources\obj\Debug\SmartScene.View.Resources.csprojResolveAssemblyReference.cache

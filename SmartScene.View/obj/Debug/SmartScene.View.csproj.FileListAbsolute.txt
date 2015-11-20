@@ -173,3 +173,8 @@ E:\Projects\指挥调度\SmartScene.View\obj\Debug\SmartScene.View.Properties.Re
 E:\Projects\指挥调度\SmartScene.View\obj\Debug\SmartScene.View.csproj.GenerateResource.Cache
 E:\Projects\指挥调度\SmartScene.View\obj\Debug\SmartScene.View.exe
 E:\Projects\指挥调度\SmartScene.View\obj\Debug\SmartScene.View.pdb
+E:\Projects\指挥调度\SmartScene.View\bin\Debug\map.PNG
+E:\Projects\指挥调度\SmartScene.View\bin\Debug\MahApps.Metro.dll
+E:\Projects\指挥调度\SmartScene.View\bin\Debug\Dragablz.dll
+E:\Projects\指挥调度\SmartScene.View\obj\Debug\ResourcePanel.g.cs
+E:\Projects\指挥调度\SmartScene.View\obj\Debug\ResourcePanel.baml

@@ -27,3 +27,17 @@ D:\GitHub\SmartScene\SmartScene.Test\obj\Debug\SmartScene.Test.csproj.GenerateRe
 D:\GitHub\SmartScene\SmartScene.Test\obj\Debug\SmartScene.Test.exe
 D:\GitHub\SmartScene\SmartScene.Test\obj\Debug\SmartScene.Test.pdb
 F:\GitHub\SmartScene\SmartScene.Test\obj\Debug\SmartScene.Test.csprojResolveAssemblyReference.cache
+E:\Projects\指挥调度\SmartScene.Test\bin\Debug\SmartScene.Test.exe.config
+E:\Projects\指挥调度\SmartScene.Test\bin\Debug\SmartScene.Test.exe
+E:\Projects\指挥调度\SmartScene.Test\bin\Debug\SmartScene.Test.pdb
+E:\Projects\指挥调度\SmartScene.Test\obj\Debug\MainWindow.g.cs
+E:\Projects\指挥调度\SmartScene.Test\obj\Debug\App.g.cs
+E:\Projects\指挥调度\SmartScene.Test\obj\Debug\SmartScene.Test_MarkupCompile.cache
+E:\Projects\指挥调度\SmartScene.Test\obj\Debug\SmartScene.Test_MarkupCompile.lref
+E:\Projects\指挥调度\SmartScene.Test\obj\Debug\MainWindow.baml
+E:\Projects\指挥调度\SmartScene.Test\obj\Debug\SmartScene.Test.g.resources
+E:\Projects\指挥调度\SmartScene.Test\obj\Debug\SmartScene.Test.Properties.Resources.resources
+E:\Projects\指挥调度\SmartScene.Test\obj\Debug\SmartScene.Test.csproj.GenerateResource.Cache
+E:\Projects\指挥调度\SmartScene.Test\obj\Debug\SmartScene.Test.exe
+E:\Projects\指挥调度\SmartScene.Test\obj\Debug\SmartScene.Test.pdb
+E:\Projects\指挥调度\SmartScene.Test\obj\Debug\SmartScene.Test.csprojResolveAssemblyReference.cache

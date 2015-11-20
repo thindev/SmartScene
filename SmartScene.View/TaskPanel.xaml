@@ -11,8 +11,8 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Border Grid.Row="0" Background="{DynamicResource AccentColorBrush2}" Height="24">
-            <TextBlock Text="任务列表：" Margin="2,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+        <Border Grid.Row="0" Background="{DynamicResource AccentColorBrush2}" Height="28">
+            <TextBlock Text="任务列表" Margin="4,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left"/>
         </Border>
         <TreeView Grid.Row="1">
             

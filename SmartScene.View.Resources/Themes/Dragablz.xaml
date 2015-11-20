@@ -84,7 +84,7 @@
                                  Fill="{TemplateBinding Background}"/>
                         <Path x:Name="Path"
                               Data="M0.5,71 L70,0.5 M0.5,1 L70,70.5" 
-                              Width="6" Height="6"
+                              Width="8" Height="8"
                               Stretch="Uniform"
                               Stroke="{TemplateBinding Foreground}"
                               StrokeThickness="1.5"
@@ -95,14 +95,12 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-        <Setter Property="Background">
-            <Setter.Value>
-                <SolidColorBrush Color="{x:Static SystemColors.ActiveBorderColor}" />
-            </Setter.Value>
+        <Setter Property="Background" Value="{DynamicResource AccentColorBrush2}">
+           
         </Setter>
-        <Setter Property="Width" Value="12" />
-        <Setter Property="Height" Value="12" />
-        <Setter Property="Margin" Value="4 0 2 0" />
+        <Setter Property="Width" Value="14" />
+        <Setter Property="Height" Value="14" />
+        <Setter Property="Margin" Value="2 0 2 0" />
         <Setter Property="Opacity" Value=".75" />
         <Setter Property="Foreground" Value="{x:Static SystemColors.HighlightTextBrush}" />
         <Style.Triggers>
@@ -159,13 +157,14 @@
         <Setter Property="Background" Value="{DynamicResource AccentColorBrush4}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource AccentColorBrush}"/>
         <Setter Property="BorderThickness" Value="0"/>
+        <!--<Setter Property="Height" Value="0"/>-->
         <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
         <Setter Property="VerticalContentAlignment" Value="Stretch"/>
         <Setter Property="IsSelected" Value="{Binding IsSelected}"/>
             <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type dragablz:DragablzItem}">
-                    <Grid x:Name="templateRoot" SnapsToDevicePixels="true" Margin="0 0 0 -1">
+                    <Grid x:Name="templateRoot" SnapsToDevicePixels="true" Margin="0 0 0 1">
                         <Border x:Name="Trapezoid" 
                                             BorderBrush="{TemplateBinding BorderBrush}" 
                                             Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}"                                          
@@ -446,6 +445,7 @@
         <Setter Property="BorderBrush" Value="{DynamicResource AccentColorBrush}"/>
         <Setter Property="Foreground" Value="{DynamicResource BlackColorBrush}"/>
         <Setter Property="Margin" Value="0,-2,0,0"/>
+        <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="HeaderSuffixContent">
             <Setter.Value>
                 <TextBlock Height="0" Width="12"/>
