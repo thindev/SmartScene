@@ -8,15 +8,95 @@ using System.Windows.Input;
 using System.Windows.Media;
 using MahApps.Metro;
 using SmartScene.ViewModel;
+using System.Windows.Controls;
 
 namespace SmartScene.View
 {
     //lifted most of this code from MahApps demo, to help illustrate the Dragablz themese complying with MahApps.
 
-    public class ThemeManagement:IThemeManagement
+    public class ThemeManagement: ViewModelBase,IThemeManagement
     {
-        public List<AccentColorMenuData> AccentColors { get; set; }
-        public List<AppThemeMenuData> AppThemes { get; set; }
+        public List<AccentColorData> AccentColors { get; set; }
+        public List<AppThemeData> AppThemes { get; set; }
+
+        private AccentColorData selectedAccentColor;
+        public AccentColorData SelectedAccentColor
+        {
+            get
+            {
+                return selectedAccentColor;
+            }
+
+            set
+            {
+                if(selectedAccentColor!=value)
+                {
+                    selectedAccentColor = value;
+                    var theme = ThemeManager.DetectAppStyle(Application.Current);
+                    var accent = ThemeManager.GetAccent(selectedAccentColor.Name);
+                    ThemeManager.ChangeAppStyle(Application.Current, accent, theme.Item1);
+                    OnPropertyChanged(()=>SelectedAccentColor);
+                }
+            }
+        }
+
+        public double Scale
+        {
+            get
+            {
+                return _scale;
+            }
+
+            set
+            {
+                if(_scale!=value)
+                {
+                    _scale = value;
+                    MetroWindowEx.ScaleTransform.ScaleY = MetroWindowEx.ScaleTransform.ScaleX = value;
+                }
+            }
+        }
+
+        public bool IsMainWindowTitleBarVisible
+        {
+            get
+            {
+                return _isMainWindowTitleBarVisible;
+            }
+
+            set
+            {
+                if(_isMainWindowTitleBarVisible!=value)
+                {
+                    _isMainWindowTitleBarVisible = value;
+                    OnPropertyChanged(()=> IsMainWindowTitleBarVisible);
+                }
+                
+            }
+        }
+
+        public bool IgnoreTaskbarOnMaximize
+        {
+            get
+            {
+                return _ignoreTaskbarOnMaximize;
+            }
+
+            set
+            {
+                if(_ignoreTaskbarOnMaximize!=value)
+                {
+                    _ignoreTaskbarOnMaximize = value;
+                    OnPropertyChanged(()=> IgnoreTaskbarOnMaximize);
+                }
+                
+            }
+        }
+
+        double _scale=1.0;
+
+        bool _isMainWindowTitleBarVisible = true;
+        bool _ignoreTaskbarOnMaximize = false;
 
         public ThemeManagement()
         {
@@ -24,24 +104,26 @@ namespace SmartScene.View
             this.AccentColors = ThemeManager.Accents
                 .Select(
                     a =>
-                        new AccentColorMenuData() {Name = a.Name, ColorBrush = a.Resources["AccentColorBrush"] as Brush})
+                        new AccentColorData() { Name = a.Name, ColorBrush = a.Resources["AccentColorBrush"] as Brush })
                 .ToList();
 
             // create metro theme color menu items for the demo
             this.AppThemes = ThemeManager.AppThemes
                 .Select(
                     a =>
-                        new AppThemeMenuData()
+                        new AppThemeData()
                         {
                             Name = a.Name,
                             BorderColorBrush = a.Resources["BlackColorBrush"] as Brush,
                             ColorBrush = a.Resources["WhiteColorBrush"] as Brush
                         })
                 .ToList();
+              Accent ac=  ThemeManager.DetectAppStyle(Application.Current).Item2;
+            this.SelectedAccentColor = this.AccentColors.FirstOrDefault(x => x.Name == ac.Name);
         }
     }
 
-    public class AccentColorMenuData
+    public class AccentColorData
     {
         public string Name { get; set; }
         public Brush BorderColorBrush { get; set; }
@@ -62,7 +144,7 @@ namespace SmartScene.View
         }
     }
 
-    public class AppThemeMenuData : AccentColorMenuData
+    public class AppThemeData : AccentColorData
     {
         protected override void DoChangeTheme(object sender)
         {

@@ -1,0 +1,101 @@
+﻿<UserControl x:Class="SmartScene.View.SettingPanel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+              xmlns:vm="clr-namespace:SmartScene.ViewModel;assembly=SmartScene.ViewModel"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+              xmlns:mahApps="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+             xmlns:local="clr-namespace:SmartScene.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" Width="250"  >
+    <UserControl.Resources>
+        <DataTemplate x:Key="ComboBoxItemTemplate">
+            <StackPanel Orientation="Horizontal">
+                <Rectangle 
+                     Width="64"
+                     Height="18"
+                     Fill="{Binding ColorBrush, Mode=OneWay}" VerticalAlignment="Center"/>
+                <TextBlock Margin="4,0,0,0" Text="{Binding Name}" VerticalAlignment="Center"/>
+            </StackPanel>
+        </DataTemplate>
+        <Style TargetType="TextBlock">
+            <Style.Setters>
+                <Setter Property="Foreground" Value="{DynamicResource AccentSelectedColorBrush}">
+                    
+                </Setter>
+            </Style.Setters>
+        </Style>
+      
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+    <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+        <DockPanel >
+        <Expander DockPanel.Dock="Top" Header="界面设置" BorderThickness="0" IsExpanded="True">
+                <Border Margin="4" DataContext="{Binding Source={x:Static vm:ViewModelContext.Current} ,Path=ThemeManagement}">
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,5">
+                            <TextBlock Text="主题颜色：" VerticalAlignment="Center" />
+                            <ComboBox  ItemsSource="{Binding AccentColors, Mode=OneWay}"
+                         ItemTemplate="{StaticResource ComboBoxItemTemplate}" SelectedItem="{Binding SelectedAccentColor}" VerticalAlignment="Center" Width="142"  />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,5">
+                            <TextBlock Text="缩放比例：" VerticalAlignment="Center" />
+                            <mahApps:NumericUpDown  Value="{Binding Scale}" TextAlignment="Center" Width="142" Minimum="0.5" Maximum="3" Interval="0.1" StringFormat=" {0:N1}" VerticalAlignment="Center"/>
+                        </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="0,5">
+                                <TextBlock Text="主标题栏：" VerticalAlignment="Center" />
+                                <mahApps:ToggleSwitch IsChecked="{Binding IsMainWindowTitleBarVisible}" OnLabel="显示标题栏" OffLabel="隐藏标题栏" Foreground="White" ThumbIndicatorBrush="{DynamicResource HighlightBrush}" ></mahApps:ToggleSwitch>
+                            </StackPanel>
+                        </StackPanel>
+            </Border>
+        </Expander>
+        <Expander DockPanel.Dock="Top" Header="其它设置" BorderThickness="0"></Expander>
+    </DockPanel>
+    </ScrollViewer>
+        <Border Grid.Row="1" Background="{DynamicResource AccentColorBrush}">
+            <Grid Margin="4" >
+                <Button Style="{DynamicResource  MahAppsMetroBaseWindowButtonStyle}"  HorizontalAlignment="Left">
+                    <StackPanel Orientation="Horizontal" FlowDirection="LeftToRight" Margin="4,2">
+                        <Path VerticalAlignment="Center" Height="18" Fill="{Binding RelativeSource={RelativeSource AncestorType=Button,Mode=FindAncestor},Path=Foreground}" Stretch="Uniform">
+                            <Path.Data>
+                                M168.941,44.972c-1.086-2.606-2.391-4.67-3.912-6.191l-22.812-22.812c-1.52-1.52-3.585-2.824-6.192-3.911
+	c-2.606-1.086-4.996-1.629-7.168-1.629H53.25c-2.172,0-4.019,0.76-5.54,2.281c-1.521,1.52-2.281,3.367-2.281,5.54v109.5
+	c0,2.173,0.76,4.02,2.281,5.54s3.368,2.281,5.54,2.281h109.5c2.173,0,4.02-0.761,5.54-2.281s2.28-3.367,2.28-5.54V52.143
+	C170.57,49.97,170.027,47.58,168.941,44.972z M97.572,23.464c0-0.706,0.258-1.316,0.774-1.833c0.516-0.515,1.127-0.773,1.833-0.773
+	h15.644c0.704,0,1.315,0.257,1.831,0.773c0.517,0.517,0.775,1.127,0.775,1.833v26.071c0,0.707-0.259,1.318-0.775,1.834
+	c-0.516,0.515-1.127,0.773-1.831,0.773h-15.644c-0.706,0-1.317-0.257-1.833-0.773c-0.516-0.517-0.774-1.127-0.774-1.834V23.464z
+	 M139.286,125.143H76.714V93.857h62.572V125.143z M160.145,125.143h-10.431h-0.001V91.249c0-2.173-0.76-4.019-2.281-5.54
+	c-1.52-1.521-3.367-2.281-5.539-2.281H74.107c-2.173,0-4.02,0.76-5.541,2.281c-1.52,1.52-2.281,3.367-2.281,5.54v33.894H55.857
+	V20.857h10.428V54.75c0,2.173,0.76,4.019,2.281,5.54c1.521,1.52,3.368,2.281,5.541,2.281h46.929c2.172,0,4.021-0.761,5.54-2.281
+	s2.281-3.367,2.281-5.54V20.857c0.814,0,1.873,0.271,3.177,0.814c1.305,0.543,2.228,1.086,2.771,1.629l22.895,22.895
+	c0.544,0.543,1.087,1.481,1.63,2.811c0.544,1.331,0.815,2.377,0.815,3.137V125.143z
+                            </Path.Data>
+                        </Path>
+                        <TextBlock  Text="保存设置" Margin="6,0,0,0" VerticalAlignment="Center"/>
+                    </StackPanel>
+
+                </Button>
+                <Button Style="{DynamicResource  MahAppsMetroBaseWindowButtonStyle}"  HorizontalAlignment="Right">
+                    <StackPanel Orientation="Horizontal" FlowDirection="LeftToRight" Margin="4,2">
+                        <Path VerticalAlignment="Center" Height="18" Fill="{Binding RelativeSource={RelativeSource AncestorType=Button,Mode=FindAncestor},Path=Foreground}" Stretch="Uniform">
+                            <Path.Data>
+                                M255.953,215.469c-8.844,0-16-7.125-16-16v-160c0-8.813,7.156-16,16-16s16,7.188,16,16v160
+	C271.953,208.344,264.797,215.469,255.953,215.469z M319.969,81.656v34.063c65.438,25.688,112,89.313,112,163.75
+	c0,97.063-79,176-176.016,176c-97.047,0-176-78.938-176-176c0-74.438,46.547-138.063,112-163.75V81.656
+	c-83.453,27.063-144,105.5-144,197.813c0,114.688,93.313,208,208,208c114.703,0,208.016-93.313,208.016-208
+	C463.969,187.156,403.406,108.719,319.969,81.656z
+                            </Path.Data>
+                        </Path>
+                        <TextBlock  Text="退出系统" Margin="6,0,0,0" VerticalAlignment="Center"/>
+                    </StackPanel>
+
+                </Button>
+            </Grid>
+        </Border>
+        
+    </Grid>
+</UserControl>

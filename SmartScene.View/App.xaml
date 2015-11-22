@@ -6,14 +6,14 @@
              xmlns:mahApps="http://metro.mahapps.com/winfx/xaml/controls" 
              xmlns:Custom="http://metro.mahapps.com/winfx/xaml/shared" 
     xmlns:Converters="clr-namespace:Dragablz.Converters;assembly=Dragablz" x:Class="SmartScene.View.App"
-             StartupUri="MainWindow.xaml">
+             StartupUri="MainWindow.xaml" >
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Colors.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Blue.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/海蓝.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseLight.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/SmartScene.View.Resources;component/Themes/Dragablz.xaml"/>
             </ResourceDictionary.MergedDictionaries>
@@ -25,7 +25,7 @@
                     <Setter.Value>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal" Margin="4,4,8,4">
-                                <Path Fill="{Binding ElementName=content,Path=Foreground}" Stretch="Uniform" Margin="1,1,6,1" Height="20" VerticalAlignment="Center">
+                                <Path Fill="{Binding ElementName=content,Path=Foreground}" Stretch="Uniform" Margin="1,1,6,1" Height="18" VerticalAlignment="Center">
                                     <Path.Data>
                                         M208.938,331.094l11.875,29.688c-11.5,4.594-22.969,8.094-34.156,10.438l-6.531-31.313
 	C189.5,337.938,199.188,334.969,208.938,331.094z M113.719,369.438c11.719,3.375,24.063,5.188,36.688,5.375l0.5-32
