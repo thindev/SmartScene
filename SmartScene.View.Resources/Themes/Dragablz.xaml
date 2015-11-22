@@ -105,6 +105,7 @@
         <Setter Property="Foreground" Value="{x:Static SystemColors.HighlightTextBrush}" />
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="true">
+                <Setter Property="Background" Value="{DynamicResource HighlightBrush}"/>
                 <Setter Property="Opacity" Value="1"/>
             </Trigger>
         </Style.Triggers>
@@ -446,11 +447,11 @@
         <Setter Property="Foreground" Value="{DynamicResource BlackColorBrush}"/>
         <Setter Property="Margin" Value="0,-2,0,0"/>
         <Setter Property="BorderThickness" Value="0"/>
-        <Setter Property="HeaderSuffixContent">
+        <!--<Setter Property="HeaderSuffixContent">
             <Setter.Value>
                 <TextBlock Height="0" Width="12"/>
             </Setter.Value>
-        </Setter>
+        </Setter>-->
         <Setter Property="AdjacentHeaderItemOffset" Value="0" />
         <Setter Property="ItemContainerStyle" Value="{StaticResource MahAppsTrapezoidDragableTabItemStyle}" />
     </Style>
